@@ -1,6 +1,8 @@
 
 # RIS_Dragon-V_I
-This project involves designing and implementing a control board for a Reconfigurable Intelligent Surface (RIS). RIS_Dragon-V_I is a MSP430F5529 MCU based control board to  manage and control the output to a RIS board with 300 PIN diodes. 
+This project involves designing and implementing a control board for a Reconfigurable Intelligent Surface (RIS). RIS_Dragon-V_I is a MSP430F5529 MCU based control board to  manage and control the output to a RIS board. The control board is designed to provide 520 output.
+
+<img src="/roadmap_v1.png" width="800" height="1173">
 
 ## Table of Contents
 
@@ -39,7 +41,7 @@ The circuit operates as follows:
 
 ### Power Supply
 
-The control board is powered by 21 power lines providing 5V. A linear voltage regulator converts the 5V input to 3.3V, which is distributed throughout the board.
+The control board is powered by 26 single dc power lines and a USB providing 5V. In each DC power lines a linear voltage regulator (AZ1117I) converts the 5V input to 3.3V providing maximum current of 1.35A. Every 10 MOSFET circuits are powered by a single DC power lines and the all the 11 MCUs are powered from mini USB.
 
 ## Pattern Generation
 
