@@ -1,6 +1,6 @@
 
-# RIS_Dragon-V_I
-This project involves designing and implementing a control board for a Reconfigurable Intelligent Surface (RIS). RIS_Dragon-V_I is a MSP430F5529 MCU based control board to  manage and control the output to a RIS board. The control board is designed to provide 520 output. The following figure shows the RIS Dragon-V I
+# RIS Dragon V-I
+This project involves designing and implementing a control board for a Reconfigurable Intelligent Surface (RIS). RIS Dragon V-I is a MSP430F5529 MCU based control board to  manage and control the output to a RIS board. The control board is designed to provide 520 output. The following figure shows the RIS Dragon V-I board.
 
 <img src="/Printed Final Product/Printed_Control board.jpg" width="1500" height="400">
 
@@ -11,8 +11,7 @@ This project involves designing and implementing a control board for a Reconfigu
   - [MOSFET Circuit](#mosfet-circuit)
   - [Power Supply](#power-supply)
   - [Software](#software)
-- [Firmware](#pattern-generation)
-- [Data Transmission Workflow](#data-transmission-workflow)
+- [Firmware Development](#fimware-development)
   - [Master MCU Workflow](#master-mcu-workflow)
   - [Slave MCU Workflow](#slave-mcu-workflow)
 - [Components Used](#acknowledgements)
@@ -50,18 +49,9 @@ The circuit operates as follows:
 The control board is powered by 26 single dc power lines and a USB providing 5V. In each DC power lines a linear voltage regulator (AZ1117I) converts the 5V input to 3.3V providing maximum current of 1.35A. Every 10 MOSFET circuits are powered by a single DC power lines and the all the 11 MCUs are powered from mini USB.
 
 ### Software
+RIS Dragon V-I control board was designed using [Altium Designer](https://www.altium.com/altium-designer)
 
-## Pattern Generation
-
-Pattern generation is crucial for controlling the RIS. Each unit cell on the RIS board has 4 states (0, 1, 2, and 3), corresponding to different configurations of the PIN diodes:
-- State 0: All 3 PIN diodes are off.
-- State 1: Only PIN diode 1 is on.
-- State 2: Only PIN diode 2 is on.
-- State 3: Only PIN diode 3 is on.
-
-A MATLAB algorithm generates a 10×10 array of patch states for the RIS, which has 100 patches. The states are mapped to control board pins in an Excel sheet. The states (1 for "OFF", 0 for "ON") are then used to generate a 65-byte binary file, which is converted to hexadecimal and saved in a text file.
-
-## Data Transmission Workflow
+## Firmware Development
 
 ### Master MCU Workflow
 
