@@ -10,12 +10,13 @@ This project involves designing and implementing a control board for a Reconfigu
   - [Control Board Architecture](#control-board-architecture)
   - [MOSFET Circuit](#mosfet-circuit)
   - [Power Supply](#power-supply)
-- [Pattern Generation](#pattern-generation)
+  - [Software](#software)
+- [Firmware](#pattern-generation)
 - [Data Transmission Workflow](#data-transmission-workflow)
   - [Master MCU Workflow](#master-mcu-workflow)
   - [Slave MCU Workflow](#slave-mcu-workflow)
-- [Acknowledgements](#acknowledgements)
-
+- [Components Used](#acknowledgements)
+- [Components Used](#acknowledgements)
 ## Hardware Overview
 
 ### Control Board Architecture
@@ -27,6 +28,8 @@ The control board consists of 11 MSP430F5529 MCUs: 1 Master MCU and 10 Slave MCU
 The board forms a total of 520 output pins by soldering a P-channel MOSFET circuit to each GPIO pins of the Master and Slave MCUs:
 - Master MCU: 20 GPIO pins
 - Each Slave MCU: 50 GPIO pins
+
+Each MCU has 9 output ports which give 63 independent GPIO pins. Out of 63 GPIO pins, only 50 pins were used to establish the outputs for the control board. 
 <img src="/CB Architecture/CB Architecture.JPG" width="1042" height="581">
 
 ### MOSFET Circuit
@@ -45,6 +48,8 @@ The circuit operates as follows:
 ### Power Supply
 
 The control board is powered by 26 single dc power lines and a USB providing 5V. In each DC power lines a linear voltage regulator (AZ1117I) converts the 5V input to 3.3V providing maximum current of 1.35A. Every 10 MOSFET circuits are powered by a single DC power lines and the all the 11 MCUs are powered from mini USB.
+
+### Software
 
 ## Pattern Generation
 
