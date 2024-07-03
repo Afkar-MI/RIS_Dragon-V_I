@@ -2,7 +2,7 @@
 # RIS_Dragon-V_I
 This project involves designing and implementing a control board for a Reconfigurable Intelligent Surface (RIS). RIS_Dragon-V_I is a MSP430F5529 MCU based control board to  manage and control the output to a RIS board. The control board is designed to provide 520 output.
 
-<img src="/Printed Final Product/Printed_Control board.jpg" width="800" height="1173">
+<img src="/Printed Final Product/Printed_Control board.jpg" width="800" height="800">
 
 ## Table of Contents
 
