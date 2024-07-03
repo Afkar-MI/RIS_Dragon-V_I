@@ -11,7 +11,7 @@ This project involves designing and implementing a control board for a Reconfigu
   - [MOSFET Circuit](#mosfet-circuit)
   - [Power Supply](#power-supply)
   - [Software](#software)
-- [Firmware Development](#fimware-development)
+- [Firmware Development](#firmware-development)
   - [Master MCU Workflow](#master-mcu-workflow)
   - [Slave MCU Workflow](#slave-mcu-workflow)
 - [Components Used](#acknowledgements)
