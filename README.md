@@ -1,6 +1,6 @@
 
 # RIS_Dragon-V_I
-This project involves designing and implementing a control board for a Reconfigurable Intelligent Surface (RIS). RIS_Dragon-V_I is a MSP430F5529 MCU based control board to  manage and control the output to a RIS board. The control board is designed to provide 520 output.
+This project involves designing and implementing a control board for a Reconfigurable Intelligent Surface (RIS). RIS_Dragon-V_I is a MSP430F5529 MCU based control board to  manage and control the output to a RIS board. The control board is designed to provide 520 output. The following figure shows the RIS Dragon-V I
 
 <img src="/Printed Final Product/Printed_Control board.jpg" width="1500" height="400">
 
@@ -21,12 +21,13 @@ This project involves designing and implementing a control board for a Reconfigu
 ### Control Board Architecture
 
 The control board consists of 11 MSP430F5529 MCUs: 1 Master MCU and 10 Slave MCUs. The architecture is designed as follows:
-- **Master MCU**: Manages communication with the PC and coordinates data transmission to the Slave MCUs.
+- **Master MCU**: Manages communication with the PC via UART communication protocol and coordinates data transmission to the Slave MCUs via SPI communication protocol.
 - **Slave MCUs**: Each manages a subset of the output pins connected to the RIS board.
 
-The board forms a total of 520 output pins by soldering a P-channel MOSFET circuit to the GPIO pins of the Master and Slave MCUs:
+The board forms a total of 520 output pins by soldering a P-channel MOSFET circuit to each GPIO pins of the Master and Slave MCUs:
 - Master MCU: 20 GPIO pins
 - Each Slave MCU: 50 GPIO pins
+<img src="/CB Architecture/CB Architecture.JPG" width="1042" height="581">
 
 ### MOSFET Circuit
 
@@ -38,6 +39,8 @@ The circuit operates as follows:
 - Triggered by negative voltage values.
 - Outputs 1 (3.3V) when input from MCU is 0.
 - Outputs 0 (0V) when input from MCU is 1.
+- 
+<img src="/CB Architecture/PMOS.JPG" width="139" height="214">
 
 ### Power Supply
 
