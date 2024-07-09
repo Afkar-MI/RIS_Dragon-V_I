@@ -49,9 +49,12 @@ The circuit operates as follows:
 The control board is powered by 26 single dc power lines and a USB providing 5V. In each DC power lines a linear voltage regulator (AZ1117I) converts the 5V input to 3.3V providing maximum current of 1.35A. Every 10 MOSFET circuits are powered by a single DC power lines and the all the 11 MCUs are powered from mini USB.
 
 ### Software
-RIS Dragon V-I control board was designed using [Altium Designer](https://www.altium.com/altium-designer)
+RIS Dragon V-I control board PCB was designed using [Altium Designer](https://www.altium.com/altium-designer) PCB design 
 
 ## Firmware Development
+Upon powering up, the Master MCU established a connection with a PC via USB and formed a UART connection for data transmission. The Master MCU received a control signal data of 65 bytes, in hexadecimal format, from the PC. It then validated the received data by verifying the header and length flag. Subsequently, the Master MCU extracted the relevant data and packed it for each Slave MCU. Using the SPI transmission protocol, the Master MCU established a connection with the first Slave MCU and sent the packed data to it. Once the data transfer was complete, the Master MCU disconnected from the first Slave MCU. This process was repeated for the remaining Slave MCUs. Following the data transmission, the Master MCU configured the output for its GPIO pins. 
+
+After establishing the connection with the Master MCU, each Slave MCU received the pattern data of 11 bytes from the Master MCU. The Slave MCU then authenticated the received data by verifying the header and length. Afterwards, the Slave MCU assigned the output for its GPIO pins. Then the PMOS was triggered as per the input from the MCU, and the PIN diodes were operated.
 
 ### Master MCU Workflow
 
