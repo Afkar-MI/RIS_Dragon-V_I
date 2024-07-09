@@ -2,7 +2,7 @@
 # RIS Dragon V-I
 This project involves designing and implementing a control board for a Reconfigurable Intelligent Surface (RIS). RIS Dragon V-I is a MSP430F5529 MCU based control board to  manage and control the output to a RIS board. The control board is designed to provide 520 output. The following figure shows the RIS Dragon V-I board.
 
-<img src="/Printed Final Product/Printed_Control board.jpg" width="1500" height="400">
+<img src="/Printed Final Product/Printed_Control board.jpg" width="946" height="302">
 
 ## Table of Contents
 
@@ -14,8 +14,9 @@ This project involves designing and implementing a control board for a Reconfigu
 - [Firmware Development](#firmware-development)
   - [Master MCU Workflow](#master-mcu-workflow)
   - [Slave MCU Workflow](#slave-mcu-workflow)
-- [Components Used](#acknowledgements)
-- [Components Used](#acknowledgements)
+  - [Software](#software-1)
+- [Acknowledgements](#acknowledgements)
+
 ## Hardware Overview
 
 ### Control Board Architecture
@@ -29,7 +30,7 @@ The board forms a total of 520 output pins by soldering a P-channel MOSFET circu
 - Each Slave MCU: 50 GPIO pins
 
 Each MCU has 9 output ports which give 63 independent GPIO pins. Out of 63 GPIO pins, only 50 pins were used to establish the outputs for the control board. 
-<img src="/CB Architecture/CB Architecture.JPG" width="1042" height="581">
+<img src="/CB Architecture/CB Architecture.JPG" width="730" height="407">
 
 ### MOSFET Circuit
 
@@ -49,7 +50,7 @@ The circuit operates as follows:
 The control board is powered by 26 single dc power lines and a USB providing 5V. In each DC power lines a linear voltage regulator (AZ1117I) converts the 5V input to 3.3V providing maximum current of 1.35A. Every 10 MOSFET circuits are powered by a single DC power lines and the all the 11 MCUs are powered from mini USB.
 
 ### Software
-RIS Dragon V-I control board PCB was designed using [Altium Designer](https://www.altium.com/altium-designer) PCB design 
+RIS Dragon V-I control board PCB was designed using [Altium Designer](https://www.altium.com/altium-designer)
 
 ## Firmware Development
 Upon powering up, the Master MCU established a connection with a PC via USB and formed a UART connection for data transmission. The Master MCU received a control signal data of 67 bytes, in hexadecimal format, from the PC. It then validated the received data by verifying the header and length flag. Subsequently, the Master MCU extracted the relevant data and packed it for each Slave MCU. Using the SPI transmission protocol, the Master MCU established a connection with the first Slave MCU and sent the packed data to it. Once the data transfer was complete, the Master MCU disconnected from the first Slave MCU. This process was repeated for the remaining Slave MCUs. Following the data transmission, the Master MCU configured the output for its GPIO pins. 
@@ -70,7 +71,7 @@ Slave MCU Data 11 Bytes  = [Header(1 bytes)]+[Lenght Flag (1 Byte)]+[9 ports (9 
 6. **GPIO Configuration**: Configures its GPIO pins based on the received data.
 
 
-<img src="/Flow Chart/Flow_Chart_Master_MCU.JPG" width="630" height="1657">
+<img src="/Flow Chart/Flow_Chart_Master_MCU.JPG" width="306" height="806">
 
 ### Slave MCU Workflow
 
@@ -79,9 +80,14 @@ Slave MCU Data 11 Bytes  = [Header(1 bytes)]+[Lenght Flag (1 Byte)]+[9 ports (9 
 3. **GPIO Configuration**: Assigns the output for its GPIO pins based on the data.
 4. **PMOS Triggering**: Operates the PIN diodes as per the input from the MCU.
 
+<img src="/Flow Chart/Flow_Chart_Slave_MCU.jpg" width="296" height="585">
+
+### Software
+The firmaware was developed on the Texas Intruments IDE [Code Composer Studio](https://www.ti.com/tool/CCSTUDIO#gui) 
+
 ## Acknowledgements
 
-This project was made possible by the contributions of dedicated team members and the support of the development community.
+This project was made possible by the contributions of my supervisor Dr Zhao Yufei(Research Fellow, Nanyang Technological University, Singapore) and Dr Feng Yuan (Research Fellow, National University of Singapore)
 
 ---
 
