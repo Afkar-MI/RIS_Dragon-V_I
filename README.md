@@ -68,8 +68,10 @@ Slave MCU Data 11 Bytes  = [Header(1 bytes)]+[Lenght Flag (1 Byte)]+[9 ports (9 
 4. **Data Preparation**: Extracts and prepares data for each Slave MCU.
 5. **SPI Transmission**: Connects to each Slave MCU in sequence and transmits the packed data.
 6. **GPIO Configuration**: Configures its GPIO pins based on the received data.
-Flow Chart/Flow_Chart_Master_MCU.JPG
-<img src="/Flow Chart/Flow_Chart_Master_MCU.JPG" width="1366" height="3595">
+
+
+<img src="/Flow Chart/Flow_Chart_Master_MCU.JPG" width="630" height="1657">
+
 ### Slave MCU Workflow
 
 1. **Data Reception**: Receives 11 bytes of pattern data from the Master MCU.
