@@ -85,10 +85,4 @@ Slave MCU Data 11 Bytes  = [Header(1 bytes)]+[Lenght Flag (1 Byte)]+[9 ports (9 
 ### Software
 The firmaware was developed on the Texas Intruments IDE [Code Composer Studio](https://www.ti.com/tool/CCSTUDIO#gui) 
 
-## Acknowledgements
 
-This project was made possible by the contributions of my supervisor Dr Zhao Yufei(Research Fellow, Nanyang Technological University, Singapore) and Dr Feng Yuan (Research Fellow, National University of Singapore)
-
----
-
-Feel free to reach out for any questions or further information about this project.
